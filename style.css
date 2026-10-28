@@ -1,0 +1,720 @@
+
+/* =====================================
+   PakInfoPoint | Modern UI Design
+   ===================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Nastaliq+Urdu:wght@400;500;600&display=swap');
+
+:root {
+    --green: #00c781;
+    --green-dark: #007a50;
+    --navy: #071b16;
+    --surface: #ffffff;
+    --background: #f3f8f5;
+    --text: #183329;
+    --muted: #718078;
+    --border: #e1ebe5;
+    --radius: 20px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', Arial, sans-serif;
+    background:
+        radial-gradient(ellipse at 10% 0%, #e0f8e9 0, transparent 35%),
+        var(--background);
+    color: var(--text);
+    line-height: 1.7;
+}
+
+/* ===== HERO HEADER ===== */
+
+header {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    text-align: center;
+    padding: 48px 22px 32px;
+    color: white;
+    background: linear-gradient(135deg, #061a14, #064e37 65%, #087d51);
+    border-bottom: 4px solid var(--green);
+}
+
+header::before,
+header::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    width: 300px;
+    height: 300px;
+    border: 1px solid rgba(0, 255, 170, 0.15);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+header::before {
+    top: -190px;
+    left: -80px;
+    box-shadow: 0 0 0 35px rgba(0, 255, 170, 0.035),
+                0 0 0 70px rgba(0, 255, 170, 0.025);
+}
+
+header::after {
+    right: -120px;
+    bottom: -240px;
+    width: 380px;
+    height: 380px;
+    box-shadow: 0 0 0 40px rgba(0, 255, 170, 0.035);
+}
+
+header h1 {
+    font-size: clamp(34px, 5vw, 54px);
+    font-weight: 800;
+    letter-spacing: -1.8px;
+    line-height: 1.2;
+}
+
+header > p:not([lang="ur"]) {
+    color: #c5e6d5;
+    margin-top: 9px;
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+
+/* ===== IQBAL POETRY ===== */
+
+header p[lang="ur"] {
+    font-family: 'Noto Nastaliq Urdu', serif;
+    font-size: clamp(19px, 2.5vw, 27px);
+    line-height: 2.4;
+    color: #f5df91;
+    margin: 25px auto 20px;
+    max-width: 850px;
+    text-shadow: 0 0 25px rgba(245, 223, 145, 0.12);
+}
+
+/* ===== NAVIGATION ===== */
+
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    max-width: 1100px;
+    margin: 30px auto 0;
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(255, 255, 255, 0.13);
+    border-radius: 16px;
+    backdrop-filter: blur(14px);
+}
+
+nav a {
+    color: #e1f5e9;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 10px 14px;
+    border-radius: 10px;
+    transition: background 0.25s ease,
+                color 0.25s ease,
+                transform 0.25s ease;
+}
+
+nav a:hover {
+    background: var(--green);
+    color: #05251a;
+    transform: translateY(-2px);
+}
+
+/* ===== MAIN CONTENT ===== */
+
+main {
+    width: min(1240px, 100%);
+    margin: 0 auto;
+    padding: 65px 28px;
+}
+
+main h2 {
+    color: #075c3d;
+    font-size: clamp(25px, 3vw, 34px);
+    font-weight: 800;
+    line-height: 1.3;
+    letter-spacing: -0.8px;
+    margin-bottom: 14px;
+}
+
+main > h2 {
+    text-align: center;
+}
+
+main > p {
+    max-width: 720px;
+    margin: 0 auto 38px;
+    text-align: center;
+    color: var(--muted);
+    font-size: 16px;
+}
+
+/* ===== DEPARTMENT GRID ===== */
+
+section {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+    margin-top: 32px;
+}
+
+/* ===== MODERN CARDS ===== */
+
+section div {
+    position: relative;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 28px;
+    box-shadow: 0 8px 30px rgba(14, 65, 42, 0.045);
+    transition: transform 0.3s ease,
+                box-shadow 0.3s ease,
+                border-color 0.3s ease;
+    animation: card-enter 0.6s ease both;
+}
+
+section div::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, #008b5a, #00e69b);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+}
+
+section div:hover {
+    transform: translateY(-7px);
+    border-color: #a5e4c6;
+    box-shadow: 0 20px 45px rgba(0, 91, 55, 0.12);
+}
+
+section div:hover::before {
+    transform: scaleX(1);
+}
+
+section h3 {
+    color: #075c3d;
+    font-size: 19px;
+    line-height: 1.4;
+    margin-bottom: 12px;
+    font-weight: 700;
+}
+
+section p {
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.8;
+    margin-bottom: 22px;
+}
+
+/* ===== BUTTON LINKS ===== */
+
+section a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 11px 17px;
+    border-radius: 10px;
+    background: #087f50;
+    color: white;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 700;
+    border: 1px solid #087f50;
+    transition: background 0.25s ease,
+                box-shadow 0.25s ease,
+                transform 0.25s ease;
+}
+
+section a:hover {
+    background: #005e3b;
+    border-color: #005e3b;
+    box-shadow: 0 6px 18px rgba(0, 126, 79, 0.2);
+    transform: translateY(-2px);
+}
+
+section hr,
+body > hr {
+    display: none;
+}
+
+/* ===== FOOTER ===== */
+
+footer {
+    position: relative;
+    background: #061b14;
+    color: #c6d9ce;
+    text-align: center;
+    padding: 38px 20px;
+    margin-top: 20px;
+    border-top: 3px solid #087f50;
+}
+
+footer p {
+    font-size: 13px;
+    margin: 7px 0;
+}
+
+footer a {
+    color: #5de5aa;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* ===== ANIMATIONS ===== */
+
+@keyframes card-enter {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===== TABLETS ===== */
+
+@media (max-width: 900px) {
+    section {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
+    }
+
+    main {
+        padding: 48px 22px;
+    }
+
+    section div {
+        padding: 24px;
+    }
+}
+
+/* ===== MOBILE ===== */
+
+@media (max-width: 580px) {
+    header {
+        padding: 35px 15px 24px;
+    }
+
+    header h1 {
+        letter-spacing: -1px;
+    }
+
+    header p[lang="ur"] {
+        line-height: 2.2;
+        margin: 20px auto;
+    }
+
+    nav {
+        gap: 4px;
+        padding: 8px;
+        margin-top: 22px;
+    }
+
+    nav a {
+        padding: 8px 10px;
+        font-size: 12px;
+    }
+
+    main {
+        padding: 42px 16px;
+    }
+
+    main > p {
+        font-size: 14px;
+    }
+
+    section {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    section div {
+        padding: 24px;
+        border-radius: 16px;
+    }
+
+    section h3 {
+        font-size: 18px;
+    }
+
+    footer {
+        padding: 30px 15px;
+    }
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* ===================================
+   PakInfoPoint - Urdu Info Section
+   Premium Editorial Design
+   =================================== */
+
+.department-info {
+    margin-top: 65px;
+    padding: 55px 45px;
+    background:
+        radial-gradient(ellipse at top left, #e0f6e9, transparent 48%),
+        linear-gradient(145deg, #ffffff, #f0f8f3);
+    border: 1px solid #d5e9dc;
+    border-radius: 28px;
+    box-shadow: 0 20px 55px rgba(0, 65, 40, 0.07);
+}
+
+/* Main heading */
+.department-info h2 {
+    text-align: center;
+    color: #064e35;
+    font-size: clamp(30px, 3.5vw, 42px);
+    line-height: 1.9;
+    margin-bottom: 20px;
+    font-weight: 800;
+}
+
+/* Introduction */
+.department-info .info-intro {
+    max-width: 900px;
+    margin: 0 auto 42px;
+    text-align: center;
+    color: #526b5d;
+    font-size: 21px;
+    line-height: 2.3;
+}
+
+/* Department information cards */
+.department-info > div {
+    position: relative;
+    margin-bottom: 22px;
+    padding: 32px 35px;
+    background: rgba(255, 255, 255, 0.92);
+    border: 1px solid #dcebe1;
+    border-right: 6px solid #078451;
+    border-radius: 18px;
+    box-shadow: 0 7px 22px rgba(0, 75, 45, 0.045);
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+}
+
+/* Hover effect */
+.department-info > div:hover {
+    transform: translateY(-5px);
+    border-right-color: #00bd78;
+    box-shadow: 0 16px 35px rgba(0, 85, 50, 0.11);
+}
+
+/* Department titles */
+.department-info > div h3 {
+    color: #07633f;
+    font-size: 26px;
+    font-weight: 800;
+    line-height: 1.9;
+    margin-bottom: 12px;
+}
+
+/* Larger Urdu details */
+.department-info > div p {
+    color: #445b4e;
+    font-size: 20px;
+    line-height: 2.3;
+    font-weight: 400;
+    margin: 0;
+}
+
+/* Highlight first card slightly */
+.department-info > div:first-of-type {
+    background: linear-gradient(120deg, #ffffff, #f2fbf5);
+}
+
+/* Tablet */
+@media (max-width: 850px) {
+    .department-info {
+        padding: 38px 25px;
+    }
+
+    .department-info .info-intro {
+        font-size: 19px;
+    }
+
+    .department-info > div {
+        padding: 26px;
+    }
+
+    .department-info > div h3 {
+        font-size: 23px;
+    }
+
+    .department-info > div p {
+        font-size: 18px;
+        line-height: 2.2;
+    }
+}
+
+/* Mobile */
+@media (max-width: 550px) {
+    .department-info {
+        margin-top: 38px;
+        padding: 24px 15px;
+        border-radius: 18px;
+    }
+
+    .department-info h2 {
+        font-size: 25px;
+    }
+
+    .department-info .info-intro {
+        font-size: 17px;
+        line-height: 2.1;
+        margin-bottom: 25px;
+    }
+
+    .department-info > div {
+        padding: 20px 17px;
+        margin-bottom: 16px;
+        border-radius: 13px;
+        border-right-width: 4px;
+    }
+
+    .department-info > div h3 {
+        font-size: 21px;
+        line-height: 1.9;
+    }
+
+    .department-info > div p {
+        font-size: 17px;
+        line-height: 2.2;
+    }
+}
+
+/* ===== MODERN CONTACT CARD ===== */
+
+.contact-card {
+    position: relative;
+    isolation: isolate;
+    max-width: 680px;
+    margin: 65px auto;
+    padding: 55px 30px;
+    text-align: center;
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at top right,
+            rgba(0, 217, 149, 0.13),
+            transparent 45%
+        ),
+        linear-gradient(145deg, #ffffff, #f0faf5);
+
+    border: 1px solid rgba(0, 160, 100, 0.2);
+    border-radius: 28px;
+    box-shadow:
+        0 25px 70px rgba(0, 70, 40, 0.09),
+        inset 0 1px 0 #ffffff;
+
+    transition: transform 0.35s ease,
+                box-shadow 0.35s ease;
+}
+
+/* Decorative background glow */
+.contact-card::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    width: 230px;
+    height: 230px;
+    top: -130px;
+    left: -100px;
+
+    background: #00d995;
+    filter: blur(85px);
+    opacity: 0.2;
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.contact-card:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 32px 80px rgba(0, 100, 60, 0.15);
+}
+
+/* Email icon */
+.contact-icon {
+    display: grid;
+    place-items: center;
+    width: 76px;
+    height: 76px;
+    margin: 0 auto 24px;
+
+    color: #ffffff;
+    font-size: 34px;
+    background: linear-gradient(135deg, #00d995, #007a50);
+    border-radius: 24px;
+
+    box-shadow:
+        0 12px 28px rgba(0, 150, 90, 0.25),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+
+    transition: transform 0.35s ease;
+}
+
+.contact-card:hover .contact-icon {
+    transform: rotate(-6deg) scale(1.06);
+}
+
+/* Heading */
+.contact-card h2 {
+    margin: 0 0 14px;
+    color: #083d2b;
+    font-size: clamp(27px, 4vw, 36px);
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+/* Description */
+.contact-card p {
+    max-width: 440px;
+    margin: 0 auto;
+    color: #62776c;
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+/* Email address */
+.email-link {
+    display: inline-block;
+    max-width: 100%;
+    margin: 27px 0;
+    padding: 15px 22px;
+
+    color: #08784e;
+    background: rgba(0, 180, 110, 0.07);
+    border: 1px solid rgba(0, 150, 90, 0.15);
+    border-radius: 14px;
+
+    font-size: clamp(14px, 2.5vw, 18px);
+    font-weight: 750;
+    text-decoration: none;
+    overflow-wrap: anywhere;
+
+    transition: background 0.25s ease,
+                border-color 0.25s ease;
+}
+
+.email-link:hover {
+    background: rgba(0, 180, 110, 0.13);
+    border-color: #00b879;
+}
+
+/* Premium email button */
+.contact-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: fit-content;
+    margin: 0 auto;
+    padding: 15px 30px;
+
+    color: #ffffff;
+    background: linear-gradient(110deg, #00b879, #006c48);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 14px;
+
+    font-size: 15px;
+    font-weight: 750;
+    text-decoration: none;
+
+    box-shadow: 0 10px 25px rgba(0, 120, 78, 0.22);
+    transition: transform 0.25s ease,
+                box-shadow 0.25s ease;
+}
+
+.contact-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 32px rgba(0, 120, 78, 0.3);
+}
+
+.contact-btn:active {
+    transform: scale(0.97);
+}
+
+/* Keyboard accessibility */
+.contact-card a:focus-visible {
+    outline: 3px solid #08784e;
+    outline-offset: 5px;
+}
+
+/* Mobile responsive */
+@media (max-width: 600px) {
+    .contact-card {
+        margin: 35px 12px;
+        padding: 38px 18px;
+        border-radius: 22px;
+    }
+
+    .contact-icon {
+        width: 65px;
+        height: 65px;
+        border-radius: 20px;
+    }
+
+    .contact-card p {
+        font-size: 14px;
+    }
+
+    .email-link {
+        padding: 13px 14px;
+    }
+
+    .contact-btn {
+        width: 100%;
+        box-sizing: border-box;
+    }
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    .contact-card,
+    .contact-icon,
+    .contact-btn {
+        transition: none;
+    }
+}
